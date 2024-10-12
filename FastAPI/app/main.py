@@ -34,7 +34,7 @@ app = FastAPI(
         "url": "https://github.com/JPablo67",
         "email": "juanpa.995@gmail.com"
     },
-    description="Receipt Master es una API que permite a los usuarios administrar sus recibos de forma eficiente.",
+    description="Receipt Master es una API de recetas",
 )
 
 
