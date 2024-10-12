@@ -49,7 +49,7 @@ class UserService:
         )
         new_user.save()
         return new_user
-    
+
     @staticmethod
     def get_user_by_id(id_user: int) -> UserModel:
         """
@@ -65,7 +65,7 @@ class UserService:
             DoesNotExist: If the user does not exist.
         """
         try:
-            return UserModel.get(UserModel.id_user == id_user)
+            return UserModel.get(UserModel.id == id_user)
         except DoesNotExist as exc:
             raise ValueError("User does not exist") from exc
 
@@ -96,13 +96,13 @@ class UserService:
         try:
             # Fetch the existing user
             existing_user = UserModel.get(UserModel.id == user_data.id)
-        
+
             # Update user details
             existing_user.username = user_data.username
             existing_user.email = user_data.email
             existing_user.password = user_data.password
             existing_user.profile_picture = user_data.profile_picture  # Nullable field
-        
+
             # Save updated user to the database
             existing_user.save()
             return existing_user
@@ -122,10 +122,10 @@ class UserService:
         """
         try:
             # Fetch the user to be deleted
-            user = UserModel.get(UserModel.id_user == id_user)
-            
+            user = UserModel.get(UserModel.id == id_user)
+
             # Delete the user instance from the database
             user.delete_instance()
-            return True
         except DoesNotExist as exc:
             raise ValueError("User does not exist") from exc
+        

@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/jpabloacosta/Desktop/U/8/Python Micro Services/ReceiptMaster/RecipeMaster/venv/bin/python3" "$0" "$@"
+'''exec' "/Users/jpabloacosta/Desktop/U/8/Python Micro Services/ReceiptMaster_Mine/venv/bin/python3.12" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

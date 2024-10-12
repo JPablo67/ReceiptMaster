@@ -6,7 +6,6 @@ This module defines the routes for user management in the FastAPI application.
 from fastapi import APIRouter, Body, HTTPException, status
 from models.user import User  # This should be the Pydantic model representing your input/output data
 from services.user_service import UserService
-from peewee import DoesNotExist
 
 user_router = APIRouter()
 
