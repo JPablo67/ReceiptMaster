@@ -1,36 +1,31 @@
-name: Lint Code with Pylint
+name: Pylint Check
 
 on:
   push:
     branches:
-      - main
-      - develop
+      - "**"  # Run on all branches
   pull_request:
     branches:
-      - main
-      - develop
+      - "**"  # Run on all pull request branches
 
 jobs:
-  pylint:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.12"
 
-      - name: Install dependencies
+      - name: Install dependencies from requirements.txt
         run: |
           python -m pip install --upgrade pip
-          pip install pylint
-          # Install project-specific dependencies (if any)
-          # Example: pip install -r requirements.txt
+          pip install -r FastAPI/requirements.txt
 
-      - name: Run Pylint
+      - name: Run Pylint on the FastAPI project
         run: |
-          pylint /Users/jpabloacosta/Desktop/U/8/Python\ Micro\ Services/ReceiptMaster_Mine/FastAPI/app/**/*.py
-          
+          pylint FastAPI/**/*.py
