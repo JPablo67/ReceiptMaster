@@ -22,7 +22,7 @@ class UserModel(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String(255), nullable=False)
-    email = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False, unique=True)
     password = Column(String(255), nullable=False)
     phone_number = Column(String(20), nullable=False)
     profile_picture = Column(String(255), nullable=True)

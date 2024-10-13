@@ -38,7 +38,11 @@ class UserService:
         """
         # Check if the user already exists
         if UserModel.select().where(UserModel.username == user_data.username).exists():
-            raise ValueError("User already exists")
+            raise ValueError("Username already exists")
+
+        # Check if the email already exists
+        if UserModel.select().where(UserModel.email == user_data.email).exists():
+            raise ValueError("Email already exists")
 
         # Create a new user record
         new_user = UserModel(
