@@ -37,13 +37,13 @@ database = MySQLDatabase(
 class UserModel(Model):
     """User model representing the user entity in the database."""
     id = AutoField(primary_key=True)
-    username = CharField(max_length=255)
-    email = CharField(max_length=255, unique=True)
-    password = CharField(max_length=255)
-    phone_number = CharField(max_length=20, null=True)
+    username = CharField(max_length=255, null=False)
+    email = CharField(max_length=255, null=False)
+    password = CharField(max_length=255, null=False)
+    phone_number = CharField(max_length=20, null=False)
     profile_picture = CharField(max_length=255, null=True)
-    creation_date = DateField()
-    update_date = DateField()
+    creation_date = CharField(max_length=255, null=False)
+    update_date = CharField(max_length=255, null=False)
 
     class Meta:
         database = database

@@ -14,7 +14,7 @@ services:
       - net_eam_database
     healthcheck:
         test: ["CMD","mysql", "-u", "root", "-proot"]
-        interval: 30s
+        interval: 5s
         timeout: 10s
         retries: 5
 # --------------------------------------------------------------------

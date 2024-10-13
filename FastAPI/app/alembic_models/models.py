@@ -16,17 +16,18 @@ metadata = MetaData()
 Base = declarative_base(metadata=metadata)
 
 
-class User(Base):
-    """SQLAlchemy model representing a user."""
+class UserModel(Base):
+    """User model representing the user entity in the database."""
     __tablename__ = "User"
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String(255), unique=True, index=True)
-    email = Column(String(255), unique=True, index=True)
-    password = Column(String(255))
-    phone_number = Column(String(20), nullable=True)
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False)
+    password = Column(String(255), nullable=False)
+    phone_number = Column(String(20), nullable=False)
     profile_picture = Column(String(255), nullable=True)
-    creation_date = Column(Date)
-    update_date = Column(Date)
+    creation_date = Column(String(255), nullable=False)
+    update_date = Column(String(255), nullable=False)
 
 
 class Unit(Base):
@@ -210,3 +211,4 @@ class CalorieUnit(Base):
     calorie_unit_id = Column(Integer, primary_key=True, index=True)
     name = Column(String(255), nullable=False)
     abbreviation = Column(String(10), nullable=False)
+    
